@@ -83,3 +83,53 @@ updateBooking();
   });
 })();
 
+
+// Manual team carousel: buttons, keyboard and native touch scrolling.
+(() => {
+  const track = document.querySelector('#staff-track');
+  const cards = [...track.querySelectorAll('.staff-card')];
+  const previous = document.querySelector('[data-staff-prev]');
+  const next = document.querySelector('[data-staff-next]');
+  const counter = document.querySelector('.staff-counter');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const position = card => card.offsetLeft - cards[0].offsetLeft;
+  const maximum = () => Math.max(0, track.scrollWidth - track.clientWidth);
+  const scrollTo = left => track.scrollTo({left:Math.max(0, Math.min(maximum(), left)), behavior:motion.matches ? 'instant' : 'smooth'});
+  function currentIndex() {
+    return cards.reduce((best, card, index) => Math.abs(position(card) - track.scrollLeft) < Math.abs(position(cards[best]) - track.scrollLeft) ? index : best, 0);
+  }
+  function move(direction) { scrollTo(position(cards[Math.max(0, Math.min(cards.length - 1, currentIndex() + direction))])); }
+  function update() {
+    previous.disabled = track.scrollLeft < 2;
+    next.disabled = track.scrollLeft >= maximum() - 2;
+    const bounds = track.getBoundingClientRect();
+    const visible = cards.map((card, index) => {
+      const box = card.getBoundingClientRect();
+      return {index, fraction:Math.max(0, Math.min(bounds.right, box.right) - Math.max(bounds.left, box.left)) / box.width};
+    }).filter(card => card.fraction > .65).map(card => card.index + 1);
+    const first = visible[0] || currentIndex() + 1;
+    const last = visible.at(-1) || first;
+    const label = `${first}${last === first ? '' : '–' + last} из ${cards.length}`;
+    if (counter.textContent !== label) counter.textContent = label;
+  }
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  track.addEventListener('keydown', event => {
+    if (event.target !== track) return;
+    if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+    if (event.key === 'Home') { event.preventDefault(); scrollTo(0); }
+    if (event.key === 'End') { event.preventDefault(); scrollTo(maximum()); }
+  });
+  track.addEventListener('focusin', event => {
+    const card = event.target.closest('.staff-card');
+    if (!card) return;
+    const bounds = track.getBoundingClientRect(), box = card.getBoundingClientRect();
+    if (box.left < bounds.left - 1 || box.right > bounds.right + 1) scrollTo(position(card));
+  });
+  let frame;
+  track.addEventListener('scroll', () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); }, {passive:true});
+  new ResizeObserver(update).observe(track);
+  update();
+})();
+
