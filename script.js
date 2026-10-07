@@ -41,3 +41,45 @@ document.querySelector('.booking-panel').addEventListener('change',updateBooking
 document.querySelectorAll('.booking-person input').forEach(input=>input.addEventListener('input',()=>{document.querySelector('#booking-feedback').hidden=true}));
 document.querySelector('#booking-preview').addEventListener('click',()=>{const {date,time,service}=bookingSelection();const name=document.querySelector('#booking-name').value.trim();document.querySelector('#booking-summary').textContent=(name?name+', ваш выбор: ':'Ваш выбор: ')+service.toLowerCase()+', '+formatDate(date,{day:'numeric',month:'long'})+' в '+time+'.';const feedback=document.querySelector('#booking-feedback');feedback.hidden=false;feedback.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})});
 updateBooking();
+
+// Sectioned price catalogue: native details and keyboard-accessible tabs.
+(() => {
+  const tabs = [...document.querySelectorAll('[data-price-category]')];
+  const tabList = document.querySelector('.price-category-tabs');
+  const verticalLayout = window.matchMedia('(min-width:951px)');
+  const updateOrientation = () => tabList.setAttribute('aria-orientation', verticalLayout.matches ? 'vertical' : 'horizontal');
+  updateOrientation();
+  verticalLayout.addEventListener('change', updateOrientation);
+  function selectCategory(category, focus = false) {
+    const selected = tabs.find(tab => tab.dataset.priceCategory === category);
+    if (!selected) return;
+    tabs.forEach(tab => {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+    });
+    if (focus) selected.focus();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectCategory(tab.dataset.priceCategory));
+    tab.addEventListener('keydown', event => {
+      let target;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') target = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') target = (index + tabs.length - 1) % tabs.length;
+      if (event.key === 'Home') target = 0;
+      if (event.key === 'End') target = tabs.length - 1;
+      if (target !== undefined) { event.preventDefault(); selectCategory(tabs[target].dataset.priceCategory, true); }
+    });
+  });
+  const categoryForService = {therapy:'therapy',hygiene:'therapy',diagnostics:'therapy',surgery:'surgery',implant:'surgery',prosthetics:'orthopedics',ortho:'orthodontics'};
+  const priceLink = document.querySelector('.dialog-price-link');
+  document.querySelectorAll('[data-service]').forEach(button => {
+    button.addEventListener('click', () => { priceLink.dataset.category = categoryForService[button.dataset.service]; });
+  });
+  priceLink.addEventListener('click', () => {
+    dialog.close();
+    selectCategory(priceLink.dataset.category || 'therapy');
+  });
+})();
+
