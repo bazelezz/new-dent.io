@@ -6,32 +6,13 @@
   if (!grid) return;
 
   const items = [...grid.querySelectorAll('.gallery-item[data-gallery-src]')];
-  const more = gallery.querySelector('#gallery-more');
   const status = gallery.querySelector('#gallery-status');
-  const pageSize = 12;
-  let visible = Math.min(pageSize, items.length);
-
-  function updateVisible() {
-    items.forEach((item, index) => { item.hidden = index >= visible; });
-    if (status) status.textContent = `Показано ${visible} из ${items.length}`;
-    if (more) more.hidden = visible >= items.length;
-  }
-
-  if (more) {
-    more.addEventListener('click', () => {
-      const firstNew = visible;
-      visible = Math.min(visible + pageSize, items.length);
-      updateVisible();
-      // Keep the reading position at the first photograph just revealed.
-      items[firstNew]?.focus({preventScroll: true});
-      items[firstNew]?.scrollIntoView({block: 'nearest', behavior: 'instant'});
-    });
-    updateVisible();
-  } else if (status) {
-    status.textContent = `Показано ${items.length} из ${items.length}`;
-  }
+  items.forEach(item => { item.hidden = false; });
+  if (status) status.textContent = `${items.length} фотографий`;
+  if (!items.length) return;
 
   const dialog = document.querySelector('#photo-dialog');
+  const stage = dialog?.querySelector('.photo-stage');
   const view = dialog?.querySelector('#photo-view');
   const caption = dialog?.querySelector('#photo-caption');
   const counter = dialog?.querySelector('#photo-counter');
@@ -53,6 +34,7 @@
   let request = 0;
   let outsidePress = false;
   let addedBodyLock = false;
+  let swipe = null;
 
   function show(index) {
     current = (index + items.length) % items.length;
@@ -110,6 +92,24 @@
     if (event.key === 'ArrowLeft') { event.preventDefault(); show(current - 1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); show(current + 1); }
   });
+  if (stage) {
+    // Preserve vertical gestures and pinch zoom while reserving horizontal swipes.
+    stage.style.touchAction = 'pan-y pinch-zoom';
+    stage.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'touch' || (event.target !== stage && event.target !== view)) return;
+      swipe = {id: event.pointerId, x: event.clientX, y: event.clientY};
+    });
+    stage.addEventListener('pointerup', event => {
+      if (!swipe || event.pointerType !== 'touch' || event.pointerId !== swipe.id) return;
+      const dx = event.clientX - swipe.x;
+      const dy = event.clientY - swipe.y;
+      swipe = null;
+      if (dialog.open && Math.abs(dx) > 50 && Math.abs(dy) < Math.abs(dx) * .5) {
+        show(current + (dx < 0 ? 1 : -1));
+      }
+    });
+    stage.addEventListener('pointercancel', () => { swipe = null; });
+  }
   const isOutside = event => {
     const bounds = dialog.getBoundingClientRect();
     return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
@@ -121,6 +121,7 @@
   });
   dialog.addEventListener('close', () => {
     ++request;
+    swipe = null;
     if (addedBodyLock) document.body.classList.remove('photo-locked');
     addedBodyLock = false;
     dialog.classList.remove('is-loading');
