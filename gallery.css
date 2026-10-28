@@ -1,0 +1,49 @@
+/* Real clinic photographs, with all images available when JavaScript is off. */
+.hero-real img{object-position:62% 50%;opacity:.76}
+.hero-real:after{background:linear-gradient(90deg,#141517 0%,#141517d9 17%,#14151730 66%),linear-gradient(0deg,#141517 0%,transparent 34%)}
+.clinic-actual{position:relative;min-width:0;margin:0;min-height:460px;align-self:stretch;border:1px solid #ffffff1f;overflow:hidden;border-radius:4px;background:#232629}
+.clinic-actual>img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:51% 50%}
+.clinic-actual figcaption{position:absolute;inset:auto 0 0;padding:60px 26px 27px;background:linear-gradient(transparent,#090b0ce8);color:#fff;display:flex;flex-direction:column;gap:10px}
+.clinic-actual figcaption>span{font-size:10px;letter-spacing:.14em;color:#d2d6d9}
+.clinic-actual figcaption a{display:flex;justify-content:space-between;align-items:center;font-size:17px}
+.clinic-actual figcaption a span{font-size:25px}
+.gallery-credit{display:inline-block;font-size:11px;color:#888d93;margin-top:7px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:950px){.clinic-actual{min-height:420px}}
+@media(max-width:600px){.clinic-actual{min-height:350px}.hero-real img{object-position:58% 50%}.hero-real:after{background:linear-gradient(180deg,#141517 0%,#14151799 12%,#14151700 30%,#14151700 66%,#141517 100%),linear-gradient(90deg,#14151740,transparent)}.clinic-actual figcaption{padding:60px 20px 22px}}
+.gallery-section{background:#101112;border-block:1px solid var(--line,rgba(255,255,255,.14))}
+.gallery-section .section-head>p{max-width:390px}
+#gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;min-width:0}
+.gallery-item{display:block;position:relative;min-width:0;width:100%;aspect-ratio:4/3;padding:0;overflow:hidden;border:1px solid #ffffff1a;border-radius:4px;background:#242628;text-align:left;isolation:isolate}
+.gallery-item[hidden]{display:none}
+.gallery-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease,opacity .25s ease}
+.gallery-item::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 45%,#0809098c);opacity:.65;transition:opacity .25s ease;pointer-events:none}
+.gallery-item::after{content:'↗';position:absolute;right:12px;bottom:12px;z-index:2;display:grid;place-items:center;width:34px;height:34px;border:1px solid #ffffff6b;border-radius:50%;background:#1118;color:#fff;font:22px/1 Arial,sans-serif;transition:background .2s ease;pointer-events:none}
+.gallery-item:focus-visible{outline:2px solid #e2e2df;outline-offset:4px;z-index:2}
+@media (hover:hover){.gallery-item:hover img{transform:scale(1.035)}.gallery-item:hover::before{opacity:1}.gallery-item:hover::after{background:#eeefed;color:#202224}}
+.gallery-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:30px;flex-wrap:wrap}
+#gallery-status{color:#9c9da0;font-size:13px;line-height:1.6}
+#gallery-more{min-height:48px;max-width:100%;padding:13px 25px;border:1px solid #ffffff3b;border-radius:4px;background:transparent;color:#eeefed;font:600 13px/1.5 var(--font,'Manrope',Arial,sans-serif);transition:background .2s ease}
+#gallery-more:hover{background:#ffffff0c}
+#gallery-more[hidden]{display:none}
+body.photo-locked{overflow:hidden}
+#photo-dialog{position:fixed;inset:0;width:min(1180px,94vw);max-width:94vw;height:min(940px,94vh);height:min(940px,94dvh);max-height:94vh;max-height:94dvh;margin:auto;padding:0;overflow:hidden;border:1px solid #ffffff29;border-radius:5px;background:#101112;color:#f4f4f1;box-shadow:0 30px 120px #0009}
+#photo-dialog[open]{display:grid;grid-template-rows:minmax(0,1fr) auto auto}
+#photo-dialog::backdrop{background:#030404e8;backdrop-filter:blur(8px)}
+#photo-dialog .photo-stage{position:relative;min-width:0;min-height:0;overflow:hidden;background:#090a0b}
+#photo-view{display:block;width:100%;height:100%;object-fit:contain;transition:opacity .15s ease}
+#photo-dialog.is-loading #photo-view{opacity:0}
+#photo-dialog .photo-close,#photo-dialog .photo-prev,#photo-dialog .photo-next{position:absolute;z-index:2;display:grid;place-items:center;width:46px;height:46px;padding:0;border:1px solid #ffffff52;border-radius:50%;background:#101112c9;color:#fff;font:300 33px/1 Arial,sans-serif;backdrop-filter:blur(6px);transition:background .2s ease}
+#photo-dialog .photo-close{top:14px;right:14px;font-size:29px}
+#photo-dialog .photo-prev{top:50%;left:14px;transform:translateY(-50%)}
+#photo-dialog .photo-next{top:50%;right:14px;transform:translateY(-50%)}
+#photo-dialog button:hover{background:#eeefed;color:#202224}
+#photo-dialog button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#photo-dialog .photo-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;min-width:0;padding:18px 22px;border-top:1px solid #ffffff1a}
+#photo-caption{min-width:0;max-width:850px;margin:0;color:#dededc;font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+#photo-counter{flex-shrink:0;white-space:nowrap;color:#96989b;font-size:12px;line-height:1.8;font-variant-numeric:tabular-nums}
+#photo-loading{margin:0;padding:0 22px 16px;color:#b6b8bb;font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+#photo-loading:empty{display:none}
+#photo-dialog.is-loading #photo-loading{position:absolute;top:45%;left:0;right:0;padding:20px;text-align:center;pointer-events:none}
+@media(max-width:950px){#gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){#gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery-item::after{right:8px;bottom:8px;width:29px;height:29px;font-size:19px}.gallery-footer{margin-top:24px;gap:16px}#gallery-more{padding-inline:20px}#photo-dialog{width:94vw;border-radius:3px}#photo-dialog .photo-meta{gap:12px;padding:15px 12px}#photo-caption{font-size:12px}#photo-counter{font-size:11px}#photo-dialog .photo-close{top:10px;right:10px}#photo-dialog .photo-prev{left:8px}#photo-dialog .photo-next{right:8px}#photo-dialog .photo-close,#photo-dialog .photo-prev,#photo-dialog .photo-next{width:44px;height:44px}#photo-loading{padding-inline:12px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.gallery-item img,.gallery-item::before,.gallery-item::after,#gallery-more,#photo-view,#photo-dialog button{transition:none}}
