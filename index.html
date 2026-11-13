@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101112'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' fill='%23dedede'%3END%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=silver-20261113"><script defer src="script.js?v=labels-icons-20261029"></script>
+  <link rel="stylesheet" href="style.css?v=silver-black"><script defer src="script.js?v=labels-icons-20261029"></script>
   <link rel="stylesheet" href="gallery.css?v=labels-icons-20261029"><script defer src="gallery.js?v=labels-icons-20261029"></script>
 </head>
 <body>
@@ -30,8 +30,7 @@
         <h1>Ваша улыбка.<br><em>Наша точность.</em></h1>
         <p class="hero-copy">От первого осмотра до уверенной улыбки. Лечение, восстановление и эстетика зубов в одной клинике.</p>
       </div>
-      <div class="hero-scene">
-        <img class="hero-interior" src="assets/clinic/hero-interior.webp" alt="Ресепшен и интерьер NEW DENT CLINIC" width="1600" height="1067" fetchpriority="high" decoding="async">
+      <div class="hero-scene" aria-hidden="true">
         <svg class="hero-emblem" viewBox="448 402 274 174" aria-hidden="true" focusable="false">
           <defs>
             <mask id="hero-emblem-mask" x="448" y="402" width="274" height="174" maskUnits="userSpaceOnUse" style="mask-type:luminance">
@@ -39,10 +38,10 @@
             </mask>
             <linearGradient id="hero-silver" x1="0" y1="0" x2=".82" y2="1">
               <stop stop-color="#ffffff"/>
-              <stop offset=".34" stop-color="#e7ebf0"/>
-              <stop offset=".59" stop-color="#9ca5ad"/>
+              <stop offset=".34" stop-color="#f3f5f8"/>
+              <stop offset=".59" stop-color="#c2c8d0"/>
               <stop offset=".79" stop-color="#f8faff"/>
-              <stop offset="1" stop-color="#bbc2c9"/>
+              <stop offset="1" stop-color="#dfe4e9"/>
             </linearGradient>
             <linearGradient id="hero-glint" x1="0" y1="1" x2="1" y2="0">
               <stop stop-color="#fff" stop-opacity="0"/>
@@ -51,7 +50,6 @@
             </linearGradient>
           </defs>
           <g mask="url(#hero-emblem-mask)">
-            <rect x="448" y="402" width="274" height="174" fill="#c3cbd4"/>
             <rect x="448" y="402" width="274" height="174" fill="url(#hero-silver)"/>
             <rect class="hero-emblem-glint" x="300" y="396" width="116" height="186" fill="url(#hero-glint)"/>
           </g>
