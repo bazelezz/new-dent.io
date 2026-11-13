@@ -117,3 +117,134 @@ svg.external-icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-wi
 @media (max-width: 600px) {
   .chief-photo { max-height: 360px; }
 }
+
+.hero-branded {
+  min-height: 0;
+  background: radial-gradient(ellipse at 75% 40%, #222930, #101214 74%);
+}
+
+.hero-branded .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-areas: "intro scene" "visit scene";
+  align-content: center;
+  align-items: end;
+  column-gap: clamp(30px, 5.4vw, 86px);
+  padding-block: clamp(48px, 6vw, 96px);
+}
+
+.hero-intro { grid-area: intro; }
+.hero-visit { grid-area: visit; align-self: start; }
+.hero-branded h1 { font-size: clamp(42px, 5.2vw, 83px); }
+.hero-branded .hero-copy { margin-top: 24px; max-width: 36ch; }
+.hero-branded .hero-location { margin-top: 25px; }
+
+.hero-scene {
+  position: relative;
+  grid-area: scene;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  aspect-ratio: 1.29;
+  overflow: hidden;
+  border-radius: 9px;
+  border: 1px solid #d9e0e85c;
+  background: #22282d;
+  box-shadow: 0 25px 56px #0006;
+}
+
+.hero-interior {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.53) brightness(.84);
+}
+
+.hero-scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #141b23c9 0%, #141b2380 36%, #141b231f 75%), linear-gradient(0deg, #151b2470, transparent 54%);
+}
+
+.hero-emblem {
+  display: block;
+  width: 48%;
+  height: auto;
+  filter: drop-shadow(0 9px 18px #000a);
+}
+
+.hero-emblem-glint { animation: hero-glint 6s ease-in-out infinite; }
+@keyframes hero-glint {
+  0%, 18% { transform: translateX(0); }
+  68%, 100% { transform: translateX(460px); }
+}
+
+.button.silver,
+.mobile-call a,
+.booking-submit {
+  color: #14181c;
+  background: linear-gradient(135deg, #fafcff 0%, #d5dbe0 46%, #aeb8c1 76%, #edf0f3 100%);
+  border-color: #dce1e6;
+  box-shadow: inset 0 1px 0 #fff9, 0 4px 15px #10151b20;
+}
+
+.button.silver:hover, .mobile-call a:hover, .booking-submit:hover { background: #eef1f4; }
+.booking-submit svg { stroke: currentColor; }
+.staff-photo .manager-portrait { object-position: 54% 22%; }
+
+.reviews-grid {
+  align-items: start;
+  gap: 30px clamp(32px, 7vw, 100px);
+}
+
+.review-snapshot {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: min(100%, 520px);
+  justify-self: end;
+  align-self: center;
+  margin: 0;
+}
+
+.review-snapshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #cbd3cc;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero-branded .hero-inner { column-gap: 24px; }
+  .hero-branded .hero-actions { flex-wrap: wrap; }
+}
+
+@media (max-width: 700px) {
+  .hero-branded .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "scene" "visit";
+    row-gap: 23px;
+    padding-block: 33px 29px;
+  }
+  .hero-branded h1 { font-size: clamp(37px, 9.8vw, 58px); }
+  .hero-branded .hero-copy { margin-top: 14px; }
+  .hero-branded .hero-actions { margin-top: 0; flex-wrap: nowrap; }
+  .hero-branded .hero-location { margin-top: 17px; }
+  .hero-scene { aspect-ratio: 1.52; }
+}
+
+@media (max-width: 720px) {
+  .reviews-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .review-snapshot { grid-column: 1; grid-row: auto; justify-self: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-emblem-glint { animation: none; }
+}

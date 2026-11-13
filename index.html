@@ -4,11 +4,11 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101112">
   <title>NEW DENT CLINIC — искусство заботы о вашей улыбке</title>
-  <meta name="description" content="Стоматология NEW DENT CLINIC в Астрахани. Лечение, имплантация, брекеты, эстетика и профессиональная гигиена. Украинская, 3к/2. Запись: +7 927 555-07-75.">
+  <meta name="description" content="Стоматология NEW DENT CLINIC в Астрахани. Лечение, имплантация, брекеты, эстетика и профессиональная гигиена. Украинская, 3. Запись: +7 927 555-07-75.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101112'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' fill='%23dedede'%3END%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=team-20261111"><script defer src="script.js?v=labels-icons-20261029"></script>
+  <link rel="stylesheet" href="style.css?v=silver-20261113"><script defer src="script.js?v=labels-icons-20261029"></script>
   <link rel="stylesheet" href="gallery.css?v=labels-icons-20261029"><script defer src="gallery.js?v=labels-icons-20261029"></script>
 </head>
 <body>
@@ -23,15 +23,44 @@
   <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Мобильная навигация"><a href="#prices">Услуги и цены</a><a href="#clinic">О клинике</a><a href="#gallery">Фотогалерея</a><a href="#team">Команда</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></nav>
 </header>
 <main id="main">
-  <section class="hero">
-    <div class="hero-art hero-real"><img src="assets/clinic/hero-reception.webp" alt="Ресепшен и зона ожидания NEW DENT CLINIC" width="1920" height="1280" fetchpriority="high" decoding="async"></div>
+  <section class="hero hero-branded">
     <div class="wrap hero-inner">
-      <div class="eyebrow"><span class="hairline"></span> NEW DENT CLINIC / АСТРАХАНЬ</div>
-      <h1>Ваша улыбка.<br><em>Наша точность.</em></h1>
-      <p class="hero-copy">От первого осмотра до уверенной улыбки.<br>Лечение, восстановление и эстетика зубов<br class="desktop-break"> в одной клинике.</p>
-      <div class="hero-actions"><a class="button silver" href="#booking">Записаться на приём</a><a class="button ghost" href="#prices">Выбрать услугу</a></div>
-      <div class="hero-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Астрахань, ул. Украинская, 3к/2<small>2-й этаж · по предварительной записи</small></span></div>
-      <div class="hero-caption"><span>ЭСТЕТИКА В КАЖДОЙ ДЕТАЛИ</span><span class="caption-rule"></span><span>ФУНКЦИЯ В ОСНОВЕ</span></div>
+      <div class="hero-intro">
+        <div class="eyebrow"><span class="hairline"></span> NEW DENT CLINIC / АСТРАХАНЬ</div>
+        <h1>Ваша улыбка.<br><em>Наша точность.</em></h1>
+        <p class="hero-copy">От первого осмотра до уверенной улыбки. Лечение, восстановление и эстетика зубов в одной клинике.</p>
+      </div>
+      <div class="hero-scene">
+        <img class="hero-interior" src="assets/clinic/hero-interior.webp" alt="Ресепшен и интерьер NEW DENT CLINIC" width="1600" height="1067" fetchpriority="high" decoding="async">
+        <svg class="hero-emblem" viewBox="448 402 274 174" aria-hidden="true" focusable="false">
+          <defs>
+            <mask id="hero-emblem-mask" x="448" y="402" width="274" height="174" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+              <image href="assets/logo.png" width="1170" height="1179"/>
+            </mask>
+            <linearGradient id="hero-silver" x1="0" y1="0" x2=".82" y2="1">
+              <stop stop-color="#ffffff"/>
+              <stop offset=".34" stop-color="#e7ebf0"/>
+              <stop offset=".59" stop-color="#9ca5ad"/>
+              <stop offset=".79" stop-color="#f8faff"/>
+              <stop offset="1" stop-color="#bbc2c9"/>
+            </linearGradient>
+            <linearGradient id="hero-glint" x1="0" y1="1" x2="1" y2="0">
+              <stop stop-color="#fff" stop-opacity="0"/>
+              <stop offset=".49" stop-color="#fff"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g mask="url(#hero-emblem-mask)">
+            <rect x="448" y="402" width="274" height="174" fill="#c3cbd4"/>
+            <rect x="448" y="402" width="274" height="174" fill="url(#hero-silver)"/>
+            <rect class="hero-emblem-glint" x="300" y="396" width="116" height="186" fill="url(#hero-glint)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-visit">
+        <div class="hero-actions"><a class="button silver" href="#booking">Записаться на приём</a><a class="button ghost" href="#prices">Выбрать услугу</a></div>
+        <div class="hero-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Астрахань, ул. Украинская, 3<small>2-й этаж · по предварительной записи</small></span></div>
+      </div>
     </div>
   </section>
   <div class="principles"><div class="wrap principles-inner"><div><strong>Точность</strong><span>Цифровая диагностика</span></div><div><strong>Внимание</strong><span>Индивидуальный план лечения</span></div><div><strong>Эстетика</strong><span>Естественный вид улыбки</span></div><div><strong>Забота</strong><span>От консультации до результата</span></div></div></div>
@@ -78,11 +107,11 @@
 
   <section class="section team-section" id="team"><div class="wrap">
     <div class="section-head"><div><div class="eyebrow">ЛЮДИ, КОТОРЫМ ВЫ ДОВЕРЯЕТЕ</div><h2>В центре внимания —<br><em>вы и ваша улыбка.</em></h2></div><p>Знакомство с врачом — первый шаг к спокойному лечению. Подберём специалиста под вашу задачу.</p></div>
-    <div class="chief"><figure class="chief-photo"><img src="assets/team-daumetov.webp" alt="Дауметов Ренат Курбанович, главный врач, стоматолог-ортопед" width="1280" height="1920" loading="lazy"></figure><div class="chief-info"><div class="eyebrow">ГЛАВНЫЙ ВРАЧ · СТОМАТОЛОГ-ОРТОПЕД</div><h3>Дауметов<br>Ренат Курбанович</h3><p>Индивидуальный подход, понятный план и внимание к каждому этапу лечения — основа работы команды NEW DENT.</p><a class="button dark" href="tel:+79275550775">Записаться на консультацию</a></div><div class="chief-note"><span>NEW DENT</span><p>Здоровье.<br>Функция.<br><em>Эстетика.</em></p></div></div>
+    <div class="chief"><figure class="chief-photo"><img src="assets/team-daumetov.webp" alt="Дауметов Ренат Курбанович, главный врач, стоматолог-ортопед" width="1280" height="1920" loading="lazy"></figure><div class="chief-info"><div class="eyebrow">ГЛАВНЫЙ ВРАЧ · СТОМАТОЛОГ-ОРТОПЕД</div><h3>Дауметов<br>Ренат Курбанович</h3><p>Индивидуальный подход, понятный план и внимание к каждому этапу лечения — основа работы команды NEW DENT.</p><a class="button silver" href="tel:+79275550775">Записаться на консультацию</a></div><div class="chief-note"><span>NEW DENT</span><p>Здоровье.<br>Функция.<br><em>Эстетика.</em></p></div></div>
 <div class="staff-carousel" role="region" aria-roledescription="карусель" aria-labelledby="staff-carousel-title">
- <div class="staff-carousel-head"><div><h3 id="staff-carousel-title">Познакомьтесь с командой</h3><p id="staff-carousel-hint">Листайте карточки <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></p></div><div class="staff-carousel-controls"><span class="staff-counter" aria-live="polite" aria-atomic="true">1–2 из 5</span><button type="button" class="staff-arrow" data-staff-prev aria-label="Предыдущие сотрудники" aria-controls="staff-track" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6M8 12h12"/></svg></button><button type="button" class="staff-arrow" data-staff-next aria-label="Следующие сотрудники" aria-controls="staff-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6M16 12H4"/></svg></button></div></div>
- <div class="staff-portraits" id="staff-track" tabindex="0" aria-label="Карточки сотрудников. Используйте стрелки или свайп" aria-describedby="staff-carousel-hint"><article class="staff-card" role="group" aria-roledescription="слайд" aria-label="1 из 5"><figure class="staff-photo"><img src="assets/team-dzhanbulat.webp" alt="Абдурахманов Джанбулат Абдурахманович, врач-терапевт" width="1280" height="1920" loading="lazy"></figure><div class="staff-info"><span class="staff-role">Врач-терапевт</span><h3>Абдурахманов<span>Джанбулат<br>Абдурахманович</span></h3><div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Записаться на приём</a></div></div></article><article class="staff-card" role="group" aria-roledescription="слайд" aria-label="2 из 5"><figure class="staff-photo"><img src="assets/team-ikhvan.webp" alt="Юсупов Ихван Русланович, врач стоматолог-терапевт" width="1280" height="1920" loading="lazy"></figure><div class="staff-info"><span class="staff-role">Врач стоматолог-терапевт</span><h3>Юсупов<span>Ихван<br>Русланович</span></h3><div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Записаться на приём</a></div></div></article>
-<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="3 из 5">
+ <div class="staff-carousel-head"><div><h3 id="staff-carousel-title">Познакомьтесь с командой</h3><p id="staff-carousel-hint">Листайте карточки <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></p></div><div class="staff-carousel-controls"><span class="staff-counter" aria-live="polite" aria-atomic="true">1–2 из 6</span><button type="button" class="staff-arrow" data-staff-prev aria-label="Предыдущие сотрудники" aria-controls="staff-track" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6M8 12h12"/></svg></button><button type="button" class="staff-arrow" data-staff-next aria-label="Следующие сотрудники" aria-controls="staff-track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6M16 12H4"/></svg></button></div></div>
+ <div class="staff-portraits" id="staff-track" tabindex="0" aria-label="Карточки сотрудников. Используйте стрелки или свайп" aria-describedby="staff-carousel-hint"><article class="staff-card" role="group" aria-roledescription="слайд" aria-label="1 из 6"><figure class="staff-photo"><img src="assets/team-dzhanbulat.webp" alt="Абдурахманов Джанбулат Абдурахманович, врач-терапевт" width="1280" height="1920" loading="lazy"></figure><div class="staff-info"><span class="staff-role">Врач-терапевт</span><h3>Абдурахманов<span>Джанбулат<br>Абдурахманович</span></h3><div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Записаться на приём</a></div></div></article><article class="staff-card" role="group" aria-roledescription="слайд" aria-label="2 из 6"><figure class="staff-photo"><img src="assets/team-ikhvan.webp" alt="Юсупов Ихван Русланович, врач стоматолог-терапевт" width="1280" height="1920" loading="lazy"></figure><div class="staff-info"><span class="staff-role">Врач стоматолог-терапевт</span><h3>Юсупов<span>Ихван<br>Русланович</span></h3><div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Записаться на приём</a></div></div></article>
+<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="3 из 6">
   <figure class="staff-photo"><img src="assets/team-sarinov.webp" alt="Саринов Анвар Автандиович, стоматолог-терапевт" width="1280" height="1920" loading="lazy"></figure>
   <div class="staff-info">
     <span class="staff-role">Стоматолог-терапевт</span>
@@ -90,7 +119,7 @@
     <div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Записаться на приём</a></div>
   </div>
 </article>
-<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="4 из 5">
+<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="4 из 6">
   <figure class="staff-photo"><img src="assets/team-eritsyan.webp" alt="Ерицян Карен Ишханович, ортодонт" width="1280" height="1920" loading="lazy"></figure>
   <div class="staff-info">
     <span class="staff-role">Ортодонт</span>
@@ -98,7 +127,16 @@
     <div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Записаться на приём</a></div>
   </div>
 </article>
-<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="5 из 5"><figure class="staff-photo"><img src="assets/team-dilyara.webp" alt="Абдрашитова Диляра Искандеровна, администратор" width="1280" height="1920" loading="lazy"></figure><div class="staff-info"><span class="staff-role">Администратор</span><h3>Абдрашитова<span>Диляра<br>Искандеровна</span></h3><div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Связаться с клиникой</a></div></div></article></div></div>
+
+<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="5 из 6">
+  <figure class="staff-photo"><img class="manager-portrait" src="assets/team-fatima.webp" alt="Дауметова Фатима Батырхановна, управляющая" width="1280" height="1920" loading="lazy"></figure>
+  <div class="staff-info">
+    <span class="staff-role">Управляющая</span>
+    <h3>Дауметова<span>Фатима<br>Батырхановна</span></h3>
+    <div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Связаться с клиникой</a></div>
+  </div>
+</article>
+<article class="staff-card" role="group" aria-roledescription="слайд" aria-label="6 из 6"><figure class="staff-photo"><img src="assets/team-dilyara.webp" alt="Абдрашитова Диляра Искандеровна, администратор" width="1280" height="1920" loading="lazy"></figure><div class="staff-info"><span class="staff-role">Администратор</span><h3>Абдрашитова<span>Диляра<br>Искандеровна</span></h3><div class="staff-card-bottom"><span class="staff-brand">NEW DENT CLINIC</span><a href="tel:+79275550775">Связаться с клиникой</a></div></div></article></div></div>
     <div class="team-list"><div><span>КОМАНДА КЛИНИКИ</span><p>Уточнить расписание и специализацию врача можно у администратора.</p></div><ul><li>Камилов М. С.</li></ul></div>
   </div></section>
 
@@ -106,7 +144,10 @@
 
   
 
-  <section class="section reviews-section" id="reviews"><div class="wrap reviews-grid"><div><div class="eyebrow">ОТЗЫВЫ ПАЦИЕНТОВ</div><h2>Доверие начинается<br><em>с реальных историй.</em></h2><p class="section-intro">Перед первым визитом познакомьтесь с опытом пациентов на независимых площадках.</p></div><div class="review-links"><a href="https://2gis.ru/astrakhan/firm/70000001052513155/tab/reviews" target="_blank" rel="noopener noreferrer"><span class="review-platform">2ГИС</span><span>Отзывы и карточка клиники</span><svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H5v14h14v-4M14 4h6v6M20 4l-9 9"/></svg></a><a href="https://prodoctorov.ru/astrahan/lpu/96922-nyu-dent/" target="_blank" rel="noopener noreferrer"><span class="review-platform">ПроДокторов</span><span>Опыт пациентов</span><svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H5v14h14v-4M14 4h6v6M20 4l-9 9"/></svg></a><div class="reviews-note">Ваш опыт помогает другим выбрать своего врача.</div></div></div></section>
+  <section class="section reviews-section" id="reviews"><div class="wrap reviews-grid"><div><div class="eyebrow">ОТЗЫВЫ ПАЦИЕНТОВ</div><h2>Доверие начинается<br><em>с реальных историй.</em></h2><p class="section-intro">Перед первым визитом познакомьтесь с опытом пациентов на независимых площадках.</p></div><div class="review-links"><a href="https://2gis.ru/astrakhan/firm/70000001052513155/tab/reviews" target="_blank" rel="noopener noreferrer"><span class="review-platform">2ГИС</span><span>Отзывы и карточка клиники</span><svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H5v14h14v-4M14 4h6v6M20 4l-9 9"/></svg></a><a href="https://prodoctorov.ru/astrahan/lpu/96922-nyu-dent/" target="_blank" rel="noopener noreferrer"><span class="review-platform">ПроДокторов</span><span>Опыт пациентов</span><svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H5v14h14v-4M14 4h6v6M20 4l-9 9"/></svg></a><div class="reviews-note">Ваш опыт помогает другим выбрать своего врача.</div></div>
+  <figure class="review-snapshot">
+    <img src="assets/reviews-2gis.png" alt="Фрагменты отзывов с 2ГИС. Руф ина: «Чисто, современное оборудование, приветливый персонал.» Юлия Кожевникова: «современные технологии, стильный, комфортный интерьер.» Виктория Волокитина: «Очень помогли и всё разъяснили. Вежливый персонал, приветливая администратор.»" width="900" height="965" loading="lazy" decoding="async">
+  </figure></div></section>
 
   <section class="section faq-section"><div class="wrap faq-grid"><div><div class="eyebrow">ПЕРЕД ВИЗИТОМ</div><h2>Важное<br><em>без сложных слов.</em></h2></div><div class="faq-list"><details><summary>Как записаться на первый приём?<span>+</span></summary><p>Позвоните по номеру +7 (927) 555-07-75. Администратор поможет выбрать направление, врача и удобное время. Приём ведётся по предварительной записи.</p></details><details><summary>Что взять с собой?<span>+</span></summary><p>Возьмите паспорт, имеющиеся снимки и заключения по предыдущему лечению. Расскажите врачу о принимаемых лекарствах и известных аллергиях.</p></details><details><summary>Можно ли узнать цену заранее?<span>+</span></summary><p>Цены на отдельные услуги собраны в разделе «Услуги и цены». Полный план и итоговая стоимость лечения определяются после осмотра. Уточнить детали можно у администратора.</p></details><details><summary>Как выбрать между брекетами и элайнерами?<span>+</span></summary><p>Подходящий метод подбирает ортодонт после диагностики. На консультации можно обсудить особенности каждого варианта, сроки и уход.</p></details><details><summary>Можно ли оплатить картой или через СБП?<span>+</span></summary><p>Да, доступны наличные, банковские карты и СБП. Детали оплаты уточните у администратора перед визитом.</p></details></div></div></section>
 
@@ -139,9 +180,9 @@
   </div>
 </section>
 
-  <section class="contacts-section" id="contacts"><div class="wrap"><div class="contact-top"><div><div class="eyebrow">БУДЕМ РАДЫ ЗНАКОМСТВУ</div><h2>Ваша новая улыбка<br><em>начинается здесь.</em></h2></div><a class="button silver" href="tel:+79275550775">Позвонить в клинику</a></div><a class="big-phone" href="tel:+79275550775">+7 (927) 555-07-75</a><div class="contact-bottom"><div><span>АДРЕС</span><p>Астрахань, ул. Украинская, 3к/2<br>2-й этаж</p></div><div><span>ВРЕМЯ РАБОТЫ</span><p>Ежедневно, 09:00–20:00<br>По предварительной записи</p></div><div class="map-links"><a href="https://2gis.ru/astrakhan/firm/70000001052513155" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a><a href="https://yandex.ru/maps/?text=New%20Dent%20Астрахань%20Украинская%203" target="_blank" rel="noopener noreferrer">Яндекс Карты</a><a href="https://www.google.com/maps/search/?api=1&query=New+Dent+Астрахань+Украинская+3" target="_blank" rel="noopener noreferrer">Google Maps</a></div></div></div></section>
+  <section class="contacts-section" id="contacts"><div class="wrap"><div class="contact-top"><div><div class="eyebrow">БУДЕМ РАДЫ ЗНАКОМСТВУ</div><h2>Ваша новая улыбка<br><em>начинается здесь.</em></h2></div><a class="button silver" href="tel:+79275550775">Позвонить в клинику</a></div><a class="big-phone" href="tel:+79275550775">+7 (927) 555-07-75</a><div class="contact-bottom"><div><span>АДРЕС</span><p>Астрахань, ул. Украинская, 3<br>2-й этаж</p></div><div><span>ВРЕМЯ РАБОТЫ</span><p>Ежедневно, 09:00–20:00<br>По предварительной записи</p></div><div class="map-links"><a href="https://2gis.ru/astrakhan/firm/70000001052513155" target="_blank" rel="noopener noreferrer">Открыть в 2ГИС</a><a href="https://yandex.ru/maps/?text=New%20Dent%20Астрахань%20Украинская%203" target="_blank" rel="noopener noreferrer">Яндекс Карты</a><a href="https://www.google.com/maps/search/?api=1&query=New+Dent+Астрахань+Украинская+3" target="_blank" rel="noopener noreferrer">Google Maps</a></div></div></div></section>
 </main>
-<footer><div class="wrap footer-top"><a class="footer-brand" href="#">NEW DENT CLINIC</a><span>ООО «Камра» · Астрахань</span><a href="#contacts">Контакты клиники</a></div><div class="wrap medical-note">Имеются противопоказания. Необходима консультация специалиста.</div><div class="wrap footer-bottom"><span>© <span id="year">2026</span> NEW DENT CLINIC</span><span>С заботой о вашей улыбке</span></div></footer>
+<footer><div class="wrap footer-top"><a class="footer-brand" href="#">NEW DENT CLINIC</a><span>ООО «КАМРА» · Астрахань</span><a href="#contacts">Контакты клиники</a></div><div class="wrap medical-note">Имеются противопоказания. Необходима консультация специалиста.</div><div class="wrap footer-bottom"><span>© <span id="year">2026</span> NEW DENT CLINIC</span><span>С заботой о вашей улыбке</span></div></footer>
 <div class="mobile-call"><a href="#booking">Онлайн-запись</a></div>
 <dialog id="service-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Закрыть подробности">×</button><div class="eyebrow">NEW DENT CLINIC / УСЛУГИ</div><h2 id="dialog-title"></h2><p id="dialog-description"></p><ul id="dialog-list"></ul><p class="dialog-note">Необходимость и возможность конкретной процедуры определяет врач после осмотра и диагностики.</p><div class="dialog-actions"><a class="button dialog-price-link" href="#prices">Посмотреть цены</a><a class="button dark" href="tel:+79275550775">Обсудить с врачом</a></div></dialog>
 
