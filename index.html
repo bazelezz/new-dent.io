@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23101112'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' fill='%23dedede'%3END%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=silver-black"><script defer src="script.js?v=labels-icons-20261029"></script>
+  <link rel="stylesheet" href="style.css?v=silver-studio"><script defer src="script.js?v=labels-icons-20261029"></script>
   <link rel="stylesheet" href="gallery.css?v=labels-icons-20261029"><script defer src="gallery.js?v=labels-icons-20261029"></script>
 </head>
 <body>
@@ -31,32 +31,55 @@
         <p class="hero-copy">От первого осмотра до уверенной улыбки. Лечение, восстановление и эстетика зубов в одной клинике.</p>
       </div>
       <div class="hero-scene" aria-hidden="true">
-        <svg class="hero-emblem" viewBox="448 402 274 174" aria-hidden="true" focusable="false">
+        <div class="hero-light"></div>
+        <div class="hero-orbit"></div>
+        <svg class="hero-emblem" viewBox="0 0 274 174" aria-hidden="true" focusable="false">
           <defs>
-            <mask id="hero-emblem-mask" x="448" y="402" width="274" height="174" maskUnits="userSpaceOnUse" style="mask-type:luminance">
-              <image href="assets/logo.png" width="1170" height="1179"/>
-            </mask>
-            <linearGradient id="hero-silver" x1="0" y1="0" x2=".82" y2="1">
+            <path id="hero-mark-shape" d="M17.68,155.29 C17.42,154.86 17.06,125.03 16.89,89.00 C16.56,18.21 16.40,20.39 21.98,17.51 C26.36,15.24 42.70,15.50 52.59,17.99 C84.26,25.98 103.54,46.76 111.97,82.00 C118.44,109.10 121.13,116.83 128.50,129.53 C133.40,137.97 142.64,147.60 150.00,151.93 L155.50,155.17 150.50,154.65 C137.31,153.28 118.33,142.85 110.03,132.42 C102.80,123.34 100.70,118.06 95.12,95.00 C88.59,68.02 84.69,59.37 74.61,49.50 C65.85,40.92 49.08,34.00 37.05,34.00 L34.02,34.00 33.76,94.75 L33.50,155.50 25.83,155.79 C21.62,155.95 17.95,155.73 17.68,155.29 Z M157.50,155.00 C157.16,154.45 157.52,154.00 158.31,154.00 C159.09,154.00 160.95,153.04 162.43,151.87 L165.14,149.75 164.44,137.40 C163.60,122.78 164.56,120.00 170.45,120.00 C175.42,120.00 179.35,123.87 184.10,133.46 C187.53,140.40 188.22,142.78 188.27,147.97 C188.31,152.28 187.89,154.45 186.91,155.08 C184.95,156.32 158.27,156.25 157.50,155.00 Z M200.36,149.75 C202.45,135.63 203.16,121.83 202.60,106.50 L201.97,89.50 204.97,81.73 C212.51,62.19 215.55,43.43 212.51,35.27 C207.92,22.95 201.52,21.04 178.50,25.14 C168.24,26.96 165.36,27.12 158.61,26.24 C147.67,24.81 141.56,27.12 137.07,34.39 C134.90,37.90 134.07,46.51 135.48,50.94 C136.56,54.34 140.96,58.93 145.25,61.12 L149.00,63.04 149.00,67.02 L149.00,71.00 146.82,71.00 C145.61,71.00 142.78,70.10 140.51,69.01 C131.05,64.43 125.02,54.89 125.02,44.50 C125.01,32.22 129.47,24.65 139.88,19.26 L146.17,16.00 169.63,16.00 C195.83,16.00 203.24,17.00 216.00,22.26 C225.86,26.32 229.51,28.68 237.60,36.22 C249.45,47.26 254.47,57.26 257.05,74.96 C259.14,89.24 255.03,109.06 247.48,121.03 C241.29,130.87 225.49,145.13 216.26,149.21 C211.87,151.15 202.68,153.96 200.62,153.99 C200.13,153.99 200.02,152.09 200.36,149.75 Z"/>
+            <clipPath id="hero-mark-clip"><use href="#hero-mark-shape"/></clipPath>
+            <linearGradient id="hero-silver" x1="0" y1="0" x2=".67" y2="1">
+              <stop stop-color="#f9fcff"/>
+              <stop offset=".24" stop-color="#d6dfe9"/>
+              <stop offset=".45" stop-color="#75818e"/>
+              <stop offset=".55" stop-color="#a4afbc"/>
+              <stop offset=".75" stop-color="#f6faff"/>
+              <stop offset="1" stop-color="#8795a3"/>
+            </linearGradient>
+            <linearGradient id="hero-rim" x2=".7" y2="1">
               <stop stop-color="#ffffff"/>
-              <stop offset=".34" stop-color="#f3f5f8"/>
-              <stop offset=".59" stop-color="#c2c8d0"/>
-              <stop offset=".79" stop-color="#f8faff"/>
-              <stop offset="1" stop-color="#dfe4e9"/>
+              <stop offset=".39" stop-color="#eaf1f8" stop-opacity=".23"/>
+              <stop offset=".74" stop-color="#edf5fd" stop-opacity=".68"/>
+              <stop offset="1" stop-color="#eaf1f8" stop-opacity=".16"/>
             </linearGradient>
             <linearGradient id="hero-glint" x1="0" y1="1" x2="1" y2="0">
               <stop stop-color="#fff" stop-opacity="0"/>
-              <stop offset=".49" stop-color="#fff"/>
+              <stop offset=".38" stop-color="#fff" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#fff" stop-opacity=".95"/>
+              <stop offset=".62" stop-color="#edf5ff" stop-opacity=".28"/>
               <stop offset="1" stop-color="#fff" stop-opacity="0"/>
             </linearGradient>
+            <linearGradient id="hero-reflection-fade" x2="0" y2="1">
+              <stop stop-color="#c5d6e8" stop-opacity=".21"/>
+              <stop offset=".8" stop-color="#c5d6e8" stop-opacity="0"/>
+            </linearGradient>
+            <mask id="hero-reflection-mask" x="0" y="157" width="274" height="42" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+              <rect y="157" width="274" height="42" fill="url(#hero-reflection-fade)"/>
+            </mask>
           </defs>
-          <g mask="url(#hero-emblem-mask)">
-            <rect x="448" y="402" width="274" height="174" fill="url(#hero-silver)"/>
-            <rect class="hero-emblem-glint" x="300" y="396" width="116" height="186" fill="url(#hero-glint)"/>
+          <g mask="url(#hero-reflection-mask)">
+            <use href="#hero-mark-shape" transform="translate(0 198) scale(1 -.25)" fill="#a5b3c2"/>
+          </g>
+          <use href="#hero-mark-shape" fill="url(#hero-silver)" stroke="url(#hero-rim)" stroke-width=".65"/>
+          <g clip-path="url(#hero-mark-clip)">
+            <rect class="hero-emblem-glint" x="-148" y="-6" width="116" height="186" fill="url(#hero-glint)"/>
           </g>
         </svg>
       </div>
       <div class="hero-visit">
-        <div class="hero-actions"><a class="button silver" href="#booking">Записаться на приём</a><a class="button ghost" href="#prices">Выбрать услугу</a></div>
+        <div class="hero-actions">
+          <a class="button silver hero-booking" href="#booking">Записаться на приём <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          <a class="button ghost" href="#prices">Выбрать услугу</a>
+        </div>
         <div class="hero-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Астрахань, ул. Украинская, 3<small>2-й этаж · по предварительной записи</small></span></div>
       </div>
     </div>

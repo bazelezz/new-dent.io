@@ -129,34 +129,66 @@ svg.external-icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-wi
   grid-template-areas: "intro scene" "visit scene";
   align-content: center;
   align-items: end;
-  column-gap: clamp(30px, 5.4vw, 86px);
-  padding-block: clamp(56px, 6vw, 90px);
+  column-gap: clamp(25px, 4vw, 70px);
+  padding-block: clamp(54px, 6vw, 92px);
 }
 
 .hero-intro { grid-area: intro; }
 .hero-visit { grid-area: visit; align-self: start; }
-.hero-branded h1 { font-size: clamp(42px, 5.2vw, 83px); }
-.hero-branded .hero-copy { margin-top: 24px; max-width: 36ch; }
-.hero-branded .hero-location { margin-top: 25px; }
+.hero-branded h1 { font-size: clamp(42px, 5.5vw, 88px); }
+.hero-branded h1 em { color: #e5e9ee; }
+.hero-branded .hero-copy { margin-top: 22px; max-width: 39ch; color: #c9ccd0; }
+.hero-branded .hero-location { margin-top: 24px; }
+.hero-booking { gap: 12px; }
+.hero-booking .ui-icon { width: 16px; height: 16px; }
 
 .hero-scene {
+  position: relative;
   grid-area: scene;
   align-self: center;
   display: grid;
   place-items: center;
-  aspect-ratio: 1.48;
+  isolation: isolate;
+  aspect-ratio: 1.5;
+}
+
+.hero-light {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 39% 46% at 52% 46%, #a8c8ed20, #748ca30d 53%, transparent 100%),
+    radial-gradient(ellipse 37% 3.8% at 51% 79%, #d5e7fa36, #8298b015 52%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-orbit {
+  position: absolute;
+  inset: 25% 4% 26%;
+  border: 1px solid #9eabb94a;
+  border-radius: 50%;
+  transform: rotate(-19deg);
+  mask-image: linear-gradient(145deg, transparent 5%, #0008 28%, transparent 49%, transparent 54%, #000 75%, transparent 95%);
+  pointer-events: none;
 }
 
 .hero-emblem {
+  position: relative;
   display: block;
-  width: min(74%, 475px);
+  width: min(77%, 490px);
   height: auto;
+  overflow: visible;
+  animation: hero-emblem-arrive 850ms cubic-bezier(.2,.7,.2,1) both;
 }
 
-.hero-emblem-glint { animation: hero-glint 6s ease-in-out .35s infinite; }
+@keyframes hero-emblem-arrive {
+  from { opacity: .48; transform: translateY(10px) scale(.975); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.hero-emblem-glint { animation: hero-glint 7s cubic-bezier(.34,.12,.47,1) .35s infinite; }
 @keyframes hero-glint {
-  0%, 18% { transform: translateX(0); }
-  68%, 100% { transform: translateX(460px); }
+  0%, 10% { transform: translateX(0); }
+  48%, 100% { transform: translateX(460px); }
 }
 
 .button.silver,
@@ -203,15 +235,17 @@ svg.external-icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-wi
   .hero-branded .hero-inner {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "intro" "scene" "visit";
-    row-gap: 23px;
+    row-gap: 17px;
     padding-block: 33px 29px;
   }
   .hero-branded h1 { font-size: clamp(37px, 9.8vw, 58px); }
   .hero-branded .hero-copy { margin-top: 14px; }
   .hero-branded .hero-actions { margin-top: 0; flex-wrap: nowrap; }
   .hero-branded .hero-location { margin-top: 17px; }
-  .hero-scene { aspect-ratio: 1.72; }
-  .hero-emblem { width: min(68%, 290px); }
+  .hero-scene { aspect-ratio: 1.83; }
+  .hero-emblem { width: min(70%, 290px); }
+  .hero-booking { gap: 6px; }
+  .hero-booking .ui-icon { width: 13px; height: 13px; }
 }
 
 @media (max-width: 720px) {
@@ -220,5 +254,5 @@ svg.external-icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-wi
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-emblem-glint { animation: none; }
+  .hero-emblem, .hero-emblem-glint { animation: none; }
 }
