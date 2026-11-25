@@ -26,21 +26,30 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()}
 window.matchMedia('(min-width:951px)').addEventListener('change',event=>{if(event.matches)closeMenu()});
 document.querySelector('#year').textContent=new Date().getFullYear();
 
-// Preview only: no network requests, storage, form submission or appointment creation.
-const dateOptions=document.querySelector('#date-options');
-const moscowDate=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Moscow',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const dateBase=new Date(moscowDate+'T12:00:00Z');
-const formatDate=(date,options)=>new Intl.DateTimeFormat('ru-RU',{timeZone:'UTC',...options}).format(date);
-const bookingDates=Array.from({length:6},(_,index)=>{const date=new Date(dateBase);date.setUTCDate(date.getUTCDate()+index+1);return date});
-bookingDates.forEach((date,index)=>{const label=document.createElement('label');const input=document.createElement('input');input.type='radio';input.name='visit-date';input.value=String(index);input.checked=index===0;input.setAttribute('aria-label',formatDate(date,{day:'numeric',month:'long',weekday:'long',year:'numeric'}));const tile=document.createElement('span');const weekday=document.createElement('small');weekday.textContent=formatDate(date,{weekday:'short'});const day=document.createElement('b');day.textContent=formatDate(date,{day:'numeric'});tile.append(weekday,day);label.append(input,tile);dateOptions.append(label)});
-const firstMonth=formatDate(bookingDates[0],{month:'long'}),lastMonth=formatDate(bookingDates[5],{month:'long'});
-document.querySelector('#booking-month').textContent=firstMonth===lastMonth?firstMonth:firstMonth+' / '+lastMonth;
-const bookingSelection=()=>({date:bookingDates[Number(document.querySelector('input[name="visit-date"]:checked').value)],time:document.querySelector('input[name="visit-time"]:checked').value,service:document.querySelector('#booking-service').value});
-function updateBooking(){const {date,time,service}=bookingSelection();document.querySelector('#card-day').textContent=formatDate(date,{day:'numeric'});document.querySelector('#card-month').textContent=formatDate(date,{day:'numeric',month:'long'}).replace(/^\d+\s/,'');document.querySelector('#card-weekday').textContent=formatDate(date,{weekday:'long'});document.querySelector('#card-time').textContent=time;document.querySelector('#card-service').textContent=service;document.querySelector('#booking-feedback').hidden=true}
-document.querySelector('.booking-panel').addEventListener('change',updateBooking);
-document.querySelectorAll('.booking-person input').forEach(input=>input.addEventListener('input',()=>{document.querySelector('#booking-feedback').hidden=true}));
-document.querySelector('#booking-preview').addEventListener('click',()=>{const {date,time,service}=bookingSelection();const name=document.querySelector('#booking-name').value.trim();document.querySelector('#booking-summary').textContent=(name?name+', ваш выбор: ':'Ваш выбор: ')+service.toLowerCase()+', '+formatDate(date,{day:'numeric',month:'long'})+' в '+time+'.';const feedback=document.querySelector('#booking-feedback');feedback.hidden=false;feedback.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})});
-updateBooking();
+(function initializeBookingForm() {
+  if (!document.querySelector('.formdesigner-widget[data-id="247935"]')) return;
+
+  const options = {
+    host: 'formdesigner.ru',
+    forms: {
+      '247935': { height: 'auto', scroll: true }
+    }
+  };
+  const loader = document.createElement('script');
+  loader.type = 'text/javascript';
+  loader.async = true;
+  loader.src = 'https://formdesigner.ru/js/universal/init.js?v=1.0.0';
+  loader.onload = function () {
+    if (document.readyState !== 'loading') {
+      window.FD.init(options);
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        window.FD.init(options);
+      }, { once: true });
+    }
+  };
+  document.head.appendChild(loader);
+})();
 
 // Sectioned price catalogue: native details and keyboard-accessible tabs.
 (() => {
